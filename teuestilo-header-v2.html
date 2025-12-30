@@ -1,0 +1,3789 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teu Estilo - Moda & Serviços</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+    
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #1f2937;
+            background-color: #f9fafb;
+        }
+    
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        ul,
+        ol {
+            list-style: none;
+        }
+    
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+    
+        button,
+        input {
+            font-family: inherit;
+            font-size: inherit;
+            border: none;
+            outline: none;
+            background: none;
+        }
+    
+        button {
+            cursor: pointer;
+        }
+    
+        :root {
+            --primary-orange: #f97316;
+            --primary-orange-dark: #ea580c;
+            --primary-blue: #1e3a5f;
+            --text-dark: #1f2937;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-light: #f1f5f9;
+            --border-medium: #e2e8f0;
+        }
+    
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+    
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+    
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 32px;
+            }
+        }
+    
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+    
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+    
+        .section-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-orange);
+            transition: gap 0.3s ease;
+        }
+    
+        .section-link:hover {
+            gap: 10px;
+        }
+    
+        .section-link svg {
+            width: 18px;
+            height: 18px;
+        }
+    
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    
+        .section-placeholder {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px dashed var(--border-medium);
+            border-radius: 16px;
+            padding: 60px 24px;
+            text-align: center;
+        }
+    
+        .section-placeholder-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            color: var(--text-light);
+        }
+    
+        .section-placeholder-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+    
+        .section-placeholder-text {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+    
+        /* TOP BAR */
+        .top-bar {
+            background-color: var(--primary-blue);
+            padding: 10px 20px;
+        }
+    
+        .top-bar-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .messages-wrapper {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            height: 20px;
+        }
+    
+        .message-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+    
+        .message-item.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    
+        .message-link {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: color 0.3s ease;
+        }
+    
+        .message-link:hover {
+            color: #fb923c;
+        }
+    
+        .message-link::after {
+            content: ' →';
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    
+        .message-link:hover::after {
+            opacity: 1;
+        }
+    
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: 20px;
+        }
+    
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #94a3b8;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+    
+        .social-link:hover {
+            color: #ffffff;
+        }
+    
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-link:hover svg {
+            transform: scale(1.15);
+        }
+    
+        .social-link span {
+            display: none;
+        }
+    
+        @media (min-width: 768px) {
+            .social-link span {
+                display: inline;
+            }
+        }
+    
+        /* HEADER */
+        .header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            z-index: 100;
+        }
+    
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 20px;
+        }
+    
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+    
+        .logo-symbol {
+            width: 44px;
+            height: 44px;
+        }
+    
+        .logo-text {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+    
+        .logo-teu {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+    
+        .logo-estilo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            letter-spacing: -0.5px;
+        }
+    
+        .search-box {
+            display: none;
+            flex: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    
+        .search-form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #f8fafc;
+            border: 2px solid var(--border-medium);
+            border-radius: 50px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+    
+        .search-form:focus-within {
+            border-color: var(--primary-orange);
+            background-color: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+        }
+    
+        .search-input {
+            flex: 1;
+            height: 46px;
+            padding: 0 20px;
+            background: transparent;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+    
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+    
+        .search-btn {
+            width: 46px;
+            height: 46px;
+            margin: 2px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        .search-btn:hover {
+            background-color: #2d4a6f;
+            transform: scale(1.05);
+        }
+    
+        .search-btn svg {
+            width: 18px;
+            height: 18px;
+            color: #ffffff;
+        }
+    
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+    
+        .action-icon {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-medium);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+    
+        .action-icon:hover {
+            color: var(--primary-orange);
+            background-color: #fff7ed;
+        }
+    
+        .action-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+    
+        .badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: var(--primary-orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .badge.dark {
+            background-color: var(--primary-blue);
+        }
+    
+        .header-search-mobile {
+            padding: 0 0 14px 0;
+        }
+    
+        .search-mobile {
+            display: flex;
+        }
+    
+        .header-nav {
+            display: none;
+            border-top: 1px solid var(--border-light);
+        }
+    
+        .nav-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+    
+        .nav-item {
+            position: relative;
+        }
+    
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 18px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+    
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 22px;
+            right: 22px;
+            height: 3px;
+            background-color: var(--primary-orange);
+            border-radius: 3px 3px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+    
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-orange);
+        }
+    
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+    
+        .nav-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+    
+        .nav-item:hover .nav-link svg {
+            transform: rotate(180deg);
+        }
+    
+        /* DROPDOWN */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(12px);
+            background-color: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.2);
+            padding: 28px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 200;
+            min-width: 720px;
+        }
+    
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+    
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr;
+            gap: 28px;
+        }
+    
+        .dropdown-links {
+            padding-right: 20px;
+            border-right: 1px solid var(--border-light);
+        }
+    
+        .dropdown-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+    
+        .dropdown-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+    
+        .dropdown-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+    
+        .dropdown-links a:hover {
+            background-color: #fff7ed;
+            color: var(--primary-orange);
+            transform: translateX(4px);
+        }
+    
+        .dropdown-links a.featured {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            color: var(--primary-orange-dark);
+        }
+    
+        .dropdown-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-medium);
+        }
+    
+        .dropdown-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-orange);
+        }
+    
+        .dropdown-card-img {
+            height: 130px;
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .dropdown-card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    
+        .dropdown-card-tag {
+            display: inline-flex;
+            align-self: flex-start;
+            padding: 5px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+    
+        .dropdown-card-tag.orange {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: #ffffff;
+        }
+    
+        .dropdown-card-tag.blue {
+            background: linear-gradient(135deg, #1e3a5f 0%, #334155 100%);
+            color: #ffffff;
+        }
+    
+        .dropdown-card-tag.green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+        }
+    
+        .dropdown-card h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+    
+        .dropdown-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex: 1;
+        }
+    
+        .dropdown-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-orange);
+            transition: gap 0.3s ease;
+        }
+    
+        .dropdown-card:hover .dropdown-card-cta {
+            gap: 10px;
+        }
+    
+        .dropdown-card-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+    
+        /* TAP BAR */
+        .tap-bar {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-white);
+            border-top: 1px solid #e5e7eb;
+            padding: 6px 0;
+            padding-bottom: calc(6px + env(safe-area-inset-bottom));
+            z-index: 100;
+        }
+    
+        .tap-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 0;
+            font-size: 11px;
+            font-weight: 500;
+            color: #6b7280;
+            transition: color 0.3s ease;
+        }
+    
+        .tap-item:hover,
+        .tap-item.active {
+            color: var(--primary-orange);
+        }
+    
+        .tap-item svg {
+            width: 24px;
+            height: 24px;
+        }
+    
+        .tap-spacer {
+            display: none;
+            height: 76px;
+        }
+    
+        /* BANNER */
+        .banner-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+    
+        }
+    
+        .banner-container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .banner-wrapper {
+            position: relative;
+            border-radius: 0;
+            overflow: hidden;
+            background-color: #e5e7eb;
+        }
+    
+        .banner-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    
+        .banner-slide {
+            min-width: 100%;
+            position: relative;
+        }
+    
+        .banner-slide a {
+            display: block;
+            width: 100%;
+        }
+    
+        .banner-slide img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+    
+        .slide-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        }
+    
+        .slide-tag {
+            display: inline-flex;
+            align-self: flex-start;
+            padding: 6px 14px;
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+    
+        .slide-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            max-width: 80%;
+        }
+    
+        .slide-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 70%;
+            display: none;
+        }
+    
+        .slide-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 12px 24px;
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+    
+        .slide-cta:hover {
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+    
+        .slide-cta svg {
+            width: 18px;
+            height: 18px;
+        }
+    
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--primary-blue);
+            border-radius: 50%;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    
+        .banner-nav:hover {
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+        }
+    
+        .banner-nav svg {
+            width: 16px;
+            height: 16px;
+        }
+    
+        .banner-nav.prev {
+            left: 16px;
+        }
+    
+        .banner-nav.next {
+            right: 16px;
+        }
+    
+        .banner-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+    
+        .banner-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    
+        .banner-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    
+        .banner-dot.active {
+            background-color: #ffffff;
+            width: 28px;
+            border-radius: 5px;
+        }
+    
+        /* COPYWRITING */
+        .copywriting-section {
+            padding: 0 16px 32px;
+        }
+    
+        .copywriting-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+    
+        .copywriting-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .copywriting-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    
+        .copy-card {
+            min-width: 100%;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+    
+        .copy-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border: 2px solid #fed7aa;
+            border-radius: 50%;
+            color: var(--primary-orange-dark);
+        }
+    
+        .copy-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+    
+        .copy-content {
+            flex: 1;
+        }
+    
+        .copy-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+    
+        .copy-text {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+    
+        .copywriting-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding-top: 12px;
+        }
+    
+        .copy-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+    
+        .copy-dot.active {
+            background-color: var(--primary-orange);
+            width: 20px;
+            border-radius: 4px;
+        }
+    
+        /* ============================================================
+       COMPRE POR CATEGORIAS - CARROSSEL v2
+       ============================================================ */
+        .categories-section {
+            padding: 48px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            overflow: hidden;
+        }
+    
+        .categories-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+    
+        .categories-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+    
+        .categories-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-wrap: nowrap;
+        }
+    
+        .categories-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    
+        .categories-nav-btn {
+            width: 30px;
+            height: 30px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 2px solid var(--border-medium);
+            border-radius: 50%;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+    
+        .categories-nav-btn:hover {
+            background-color: var(--primary-orange);
+            border-color: var(--primary-orange);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+    
+        .categories-nav-btn:active {
+            transform: scale(0.95);
+        }
+    
+        .categories-nav-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+    
+        .categories-nav-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+    
+        /* Menu 3 Pontos */
+        .menu-dots-wrapper {
+            position: relative;
+            margin-left: 8px;
+        }
+    
+        .menu-dots-btn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            background: transparent;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+    
+        .menu-dots-btn:hover {
+            background-color: #fff7ed;
+        }
+    
+        .menu-dots-btn.active {
+            background-color: #fff7ed;
+        }
+    
+        .menu-dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+    
+        .menu-dots-btn:hover .menu-dot {
+            transform: scale(1.2);
+        }
+    
+        /* Dropdown Menu */
+        .dots-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 220px;
+            background-color: var(--primary-blue);
+            border-radius: 16px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 50;
+            box-shadow: 0 20px 40px rgba(30, 58, 95, 0.35);
+        }
+    
+        .dots-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 16px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+    
+        .dots-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    
+        .dots-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+    
+        .dots-dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding-left: 24px;
+        }
+    
+        .dots-dropdown-item svg {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+    
+        .dots-dropdown-item:hover svg {
+            opacity: 1;
+        }
+    
+        .dots-dropdown-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 8px 16px;
+        }
+    
+        /* Carrossel */
+        .categories-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 0 -16px;
+            padding: 0 16px;
+        }
+    
+        .categories-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: grab;
+            user-select: none;
+        }
+    
+        .categories-track:active {
+            cursor: grabbing;
+        }
+    
+        .categories-track.dragging {
+            transition: none;
+        }
+    
+        /* Card de Categoria */
+        .category-card {
+            flex: 0 0 calc(50% - 8px);
+            min-width: calc(50% - 8px);
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #e5e7eb;
+        }
+    
+        .category-card-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    
+        .category-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    
+        .category-card:hover .category-card-img {
+            transform: scale(1.1);
+        }
+    
+        /* Overlay com gradiente */
+        .category-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.75) 0%,
+                    rgba(0, 0, 0, 0.3) 40%,
+                    rgba(0, 0, 0, 0.05) 70%,
+                    transparent 100%);
+            transition: all 0.4s ease;
+        }
+    
+        .category-card:hover .category-card-overlay {
+            background: linear-gradient(0deg,
+                    rgba(249, 115, 22, 0.92) 0%,
+                    rgba(249, 115, 22, 0.5) 35%,
+                    rgba(0, 0, 0, 0.05) 70%,
+                    transparent 100%);
+        }
+    
+        /* Conteúdo do card */
+        .category-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+        }
+    
+        .category-card-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    
+        .category-card-count {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s ease 0.05s;
+        }
+    
+        .category-card:hover .category-card-count {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .category-card-arrow {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: var(--primary-orange);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    
+        .category-card:hover .category-card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    
+        .category-card-arrow svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+    
+        .category-card:hover .category-card-arrow:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+    
+        .category-card:hover .category-card-arrow:hover svg {
+            transform: translateX(3px);
+        }
+    
+        /* Indicador de progresso */
+        .categories-progress {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 24px;
+        }
+    
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    
+        .progress-dot:hover {
+            background-color: #9ca3af;
+        }
+    
+        .progress-dot.active {
+            width: 24px;
+            background-color: var(--primary-orange);
+            border-radius: 4px;
+        }
+    
+        /* ================================================================
+       SECÇÃO MAIS PROCURADOS - CONTAINER
+       ================================================================ */
+        .trending-section {
+            padding: 48px 0;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+    
+        .trending-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+    
+        /* ================================================================
+       HEADER - TÍTULO + NAVEGAÇÃO
+       ================================================================ */
+        .trending-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+    
+        .trending-title {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+    
+        .trending-title-mais {
+            color: var(--primary-blue, #1e3a5f);
+        }
+    
+        .trending-title-procurados {
+            color: var(--primary-orange, #f97316);
+        }
+    
+        /* Navegação - Setas */
+        .trending-nav {
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+    
+        .trending-nav-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 50%;
+            color: var(--primary-blue, #1e3a5f);
+            transition: all 0.3s ease;
+        }
+    
+        .trending-nav-btn:hover {
+            background-color: var(--primary-orange, #f97316);
+            border-color: var(--primary-orange, #f97316);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+    
+        .trending-nav-btn:active {
+            transform: scale(0.95);
+        }
+    
+        .trending-nav-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+    
+        .trending-nav-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+    
+        /* ================================================================
+       FILTROS - BOTÕES DE CATEGORIA
+       ================================================================ */
+        .trending-filters {
+            margin-bottom: 24px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            margin-left: -16px;
+            margin-right: -16px;
+            padding: 0 16px;
+        }
+    
+        .trending-filters::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .trending-filters-track {
+            display: flex;
+            gap: 10px;
+            padding: 4px 0;
+        }
+    
+        .filter-btn {
+            flex-shrink: 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            background-color: #f1f5f9;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+    
+        .filter-btn:hover {
+            color: var(--primary-orange, #f97316);
+            background-color: #fff7ed;
+            border-color: #fed7aa;
+        }
+    
+        .filter-btn.active {
+            color: #ffffff;
+            background-color: var(--primary-orange, #f97316);
+            border-color: var(--primary-orange, #f97316);
+        }
+    
+        /* ================================================================
+       CARROSSEL DE PRODUTOS
+       ================================================================ */
+        .trending-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 0 -16px;
+            padding: 0 16px;
+        }
+    
+        .trending-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: grab;
+            user-select: none;
+        }
+    
+        .trending-track:active {
+            cursor: grabbing;
+        }
+    
+        .trending-track.dragging {
+            transition: none;
+        }
+    
+        /* ================================================================
+       CARD DE PRODUTO
+       ================================================================ */
+        .product-card {
+            flex: 0 0 calc(50% - 8px);
+            min-width: calc(50% - 8px);
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+    
+        .product-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - IMAGEM
+       ---------------------------------------------------------------- */
+        .product-card-image {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            border-radius: 16px;
+        }
+    
+        .product-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    
+        .product-card:hover .product-card-img {
+            transform: scale(1.08);
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - BOTÃO FAVORITOS (Coração)
+       ---------------------------------------------------------------- */
+        .product-favorite-btn {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .product-favorite-btn:hover {
+            color: var(--primary-orange, #f97316);
+            transform: scale(1.1);
+        }
+    
+        .product-favorite-btn.active {
+            color: var(--primary-orange, #f97316);
+        }
+    
+        .product-favorite-btn.active svg {
+            fill: var(--primary-orange, #f97316);
+        }
+    
+        .product-favorite-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease;
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - MENU 3 PONTOS
+       ---------------------------------------------------------------- */
+        .product-menu-wrapper {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 10;
+        }
+    
+        .product-menu-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .product-menu-btn:hover {
+            background-color: #ffffff;
+            transform: scale(1.1);
+        }
+    
+        .product-menu-btn.active {
+            background-color: #ffffff;
+        }
+    
+        .product-menu-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #64748b;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+    
+        .product-menu-btn:hover .product-menu-dot,
+        .product-menu-btn.active .product-menu-dot {
+            background-color: var(--primary-orange, #f97316);
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - DROPDOWN DO PRODUTO
+       ---------------------------------------------------------------- */
+        .product-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 200px;
+            background-color: var(--primary-blue, #1e3a5f);
+            border-radius: 14px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 50;
+            box-shadow: 0 15px 35px rgba(30, 58, 95, 0.35);
+        }
+    
+        .product-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 14px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue, #1e3a5f);
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+    
+        .product-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    
+        .product-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+    
+        .product-dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding-left: 20px;
+        }
+    
+        .product-dropdown-item svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.7;
+        }
+    
+        .product-dropdown-item:hover svg {
+            opacity: 1;
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - BADGE DE DESCONTO (Opcional)
+       ---------------------------------------------------------------- */
+        .product-badge-discount {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #FE2C55;
+            border-radius: 8px;
+            z-index: 5;
+        }
+    
+        /* ----------------------------------------------------------------
+       CARD - CONTEÚDO (Texto)
+       ---------------------------------------------------------------- */
+        .product-card-content {
+            padding: 16px 4px;
+        }
+    
+        /* SKU Discreto */
+        .product-sku {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+    
+        /* Nome do Produto */
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    
+        .product-name a {
+            transition: color 0.3s ease;
+        }
+    
+        .product-name a:hover {
+            color: var(--primary-orange, #f97316);
+        }
+    
+        /* Hashtags */
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+    
+        .product-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: #818CF8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+    
+        .product-tag:hover {
+            background-color: rgba(129, 140, 248, 0.2);
+        }
+    
+        /* Preço */
+        .product-price-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FE2C55;
+        }
+    
+        .product-price-old {
+            font-size: 14px;
+            font-weight: 500;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+    
+        /* ================================================================
+       INDICADOR DE PROGRESSO (Mobile)
+       ================================================================ */
+        .trending-progress {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 24px;
+        }
+    
+        .trending-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    
+        .trending-dot:hover {
+            background-color: #9ca3af;
+        }
+    
+        .trending-dot.active {
+            width: 24px;
+            background-color: var(--primary-orange, #f97316);
+            border-radius: 4px;
+        }
+    
+        /* ================================================================
+       POPUP DE LOGIN (Favoritos)
+       ================================================================ */
+        .login-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+    
+        .login-popup-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        .login-popup {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+    
+        .login-popup-overlay.open .login-popup {
+            transform: scale(1);
+        }
+    
+        .login-popup-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border-radius: 50%;
+            color: var(--primary-orange, #f97316);
+        }
+    
+        .login-popup-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+    
+        .login-popup-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue, #1e3a5f);
+            margin-bottom: 12px;
+        }
+    
+        .login-popup-text {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+    
+        .login-popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+    
+        .login-popup-btn {
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+    
+        .login-popup-btn.primary {
+            color: #ffffff;
+            background-color: var(--primary-orange, #f97316);
+        }
+    
+        .login-popup-btn.primary:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+    
+        .login-popup-btn.secondary {
+            color: #64748b;
+            background-color: #f1f5f9;
+        }
+    
+        .login-popup-btn.secondary:hover {
+            background-color: #e2e8f0;
+        }
+    
+        .login-popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+    
+        .login-popup-close:hover {
+            background-color: #f1f5f9;
+            color: #64748b;
+        }
+    
+        .login-popup-close svg {
+            width: 20px;
+            height: 20px;
+        }
+    
+        /* HOMEPAGE SECTIONS */
+        .homepage-section {
+            padding: 40px 0;
+        }
+    
+        .homepage-section:nth-child(even) {
+            background-color: var(--bg-white);
+        }
+    
+        /* ============================================================
+       RESPONSIVE 640px
+       ============================================================ */
+        @media (min-width: 640px) {
+            .category-card {
+                flex: 0 0 calc(33.333% - 11px);
+                min-width: calc(33.333% - 11px);
+            }
+    
+            .categories-nav-btn {
+                display: flex;
+            }
+    
+            .trending-nav {
+                display: flex;
+            }
+    
+            .trending-filters {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0;
+            }
+    
+            .product-card {
+                flex: 0 0 calc(33.333% - 11px);
+                min-width: calc(33.333% - 11px);
+            }
+    
+            .trending-progress {
+                display: none;
+            }
+    
+        }
+    
+        /* ============================================================
+       RESPONSIVE 768px
+       ============================================================ */
+    
+        @media (min-width: 768px) {
+            .header {
+                position: sticky;
+                top: 0;
+            }
+    
+            .logo-symbol {
+                width: 50px;
+                height: 50px;
+            }
+    
+            .logo-teu,
+            .logo-estilo {
+                font-size: 28px;
+            }
+    
+            .search-box {
+                display: flex;
+                margin: 0 40px;
+            }
+    
+            .header-search-mobile {
+                display: none;
+            }
+    
+            .header-nav {
+                display: block;
+            }
+    
+            .tap-bar,
+            .tap-spacer {
+                display: none;
+            }
+    
+            .banner-container {
+                padding: 0;
+                margin-bottom: 25px;
+            }
+    
+            .banner-nav {
+                width: 30px;
+                height: 30px;
+            }
+    
+            .banner-nav svg {
+                width: 20px;
+                height: 20px;
+            }
+    
+            .banner-wrapper {
+                border-radius: 0;
+            }
+    
+            .banner-slide img {
+                height: 340px;
+            }
+    
+            .slide-content {
+                padding: 48px;
+            }
+    
+            .slide-title {
+                font-size: 36px;
+                max-width: 55%;
+            }
+    
+            .slide-text {
+                display: block;
+                font-size: 15px;
+            }
+    
+            .copywriting-section {
+                padding: 0 24px 40px;
+            }
+    
+            .copywriting-wrapper {
+                overflow: visible;
+            }
+    
+            .copywriting-track {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+                transform: none !important;
+            }
+    
+            .copy-card {
+                min-width: auto;
+                padding: 0;
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+            }
+    
+            .copy-icon {
+                width: 60px;
+                height: 60px;
+                min-width: 60px;
+            }
+    
+            .copy-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+    
+            .copywriting-dots {
+                display: none;
+            }
+    
+            .categories-section {
+                padding: 64px 0;
+            }
+    
+            .categories-container {
+                padding: 0 24px;
+            }
+    
+            .categories-header {
+                margin-bottom: 36px;
+            }
+    
+            .categories-title {
+                font-size: 28px;
+            }
+    
+            .categories-carousel {
+                margin: 0 -24px;
+                padding: 0 24px;
+            }
+    
+            .category-card {
+                flex: 0 0 calc(25% - 12px);
+                min-width: calc(25% - 12px);
+                aspect-ratio: 2/3;
+            }
+    
+            .category-card-content {
+                padding: 24px;
+            }
+    
+            .category-card-name {
+                font-size: 22px;
+            }
+    
+            .category-card-arrow {
+                bottom: 24px;
+                right: 24px;
+                width: 44px;
+                height: 44px;
+            }
+    
+            .categories-progress {
+                display: none;
+            }
+    
+            .dots-dropdown {
+                min-width: 240px;
+            }
+    
+            .homepage-section {
+                padding: 60px 0;
+            }
+    
+            .trending-section {
+                padding: 64px 0;
+            }
+    
+            .trending-container {
+                padding: 0 24px;
+            }
+    
+            .trending-header {
+                margin-bottom: 28px;
+            }
+    
+            .trending-title {
+                font-size: 28px;
+            }
+    
+            .trending-filters {
+                margin-bottom: 28px;
+            }
+    
+            .filter-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+    
+            .trending-carousel {
+                margin: 0 -24px;
+                padding: 0 24px;
+            }
+    
+            .product-card {
+                flex: 0 0 calc(25% - 12px);
+                min-width: calc(25% - 12px);
+                border-radius: 20px;
+            }
+    
+            .product-card-image {
+                border-radius: 20px;
+            }
+    
+            .product-card-content {
+                padding: 18px 6px;
+            }
+    
+            .product-name {
+                font-size: 16px;
+            }
+    
+            .product-price {
+                font-size: 20px;
+            }
+    
+        }
+    
+    
+        /* ============================================================
+       RESPONSIVE 1024px
+       ============================================================ */
+        @media (min-width: 1024px) {
+            .logo-symbol {
+                width: 54px;
+                height: 54px;
+            }
+    
+            .logo-teu,
+            .logo-estilo {
+                font-size: 30px;
+            }
+    
+            .search-box {
+                max-width: 680px;
+            }
+    
+            .dropdown {
+                min-width: 780px;
+                padding: 32px;
+            }
+    
+            .dropdown-grid {
+                grid-template-columns: 200px 1fr 1fr;
+                gap: 32px;
+            }
+    
+            .banner-container {
+                padding: 0;
+            }
+    
+            .banner-slide img {
+                height: 420px;
+            }
+    
+            .slide-content {
+                padding: 64px;
+            }
+    
+            .slide-title {
+                font-size: 44px;
+            }
+    
+            .slide-text {
+                font-size: 16px;
+                max-width: 45%;
+            }
+    
+            .slide-cta {
+                padding: 14px 28px;
+                font-size: 15px;
+                margin-top: 24px;
+            }
+    
+            .copywriting-section {
+                padding: 0 32px 48px;
+            }
+    
+            .copywriting-track {
+                gap: 32px;
+            }
+    
+            .copy-icon {
+                width: 68px;
+                height: 68px;
+            }
+    
+            .copy-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+    
+            .categories-section {
+                padding: 80px 0;
+            }
+    
+            .categories-container {
+                padding: 0 32px;
+            }
+    
+            .categories-carousel {
+                margin: 0 -32px;
+                padding: 0 32px;
+            }
+    
+            .categories-track {
+                gap: 20px;
+            }
+    
+            .category-card {
+                flex: 0 0 calc(20% - 16px);
+                min-width: calc(20% - 16px);
+                border-radius: 24px;
+            }
+    
+            .category-card-content {
+                padding: 28px;
+            }
+    
+            .category-card-name {
+                font-size: 24px;
+            }
+    
+            .category-card-count {
+                font-size: 14px;
+            }
+    
+            .category-card-arrow {
+                bottom: 28px;
+                right: 28px;
+                width: 48px;
+                height: 48px;
+            }
+    
+            .category-card-arrow svg {
+                width: 22px;
+                height: 22px;
+            }
+    
+            .homepage-section {
+                padding: 80px 0;
+            }
+    
+            .trending-section {
+                padding: 80px 0;
+            }
+    
+            .trending-container {
+                padding: 0 32px;
+            }
+    
+            .trending-carousel {
+                margin: 0 -32px;
+                padding: 0 32px;
+            }
+    
+            .trending-track {
+                gap: 20px;
+            }
+    
+            .product-card {
+                flex: 0 0 calc(25% - 15px);
+                min-width: calc(25% - 15px);
+            }
+    
+            .product-favorite-btn,
+            .product-menu-btn {
+                width: 40px;
+                height: 40px;
+            }
+    
+            .product-favorite-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+    
+            .product-card-content {
+                padding: 20px 8px;
+            }
+        }
+    
+        /* ============================================================
+       RESPONSIVE 1280px
+       ============================================================ */
+    
+        @media (min-width: 1280px) {
+            .categories-track {
+                gap: 24px;
+            }
+    
+            .category-card {
+                flex: 0 0 calc(20% - 19.2px);
+                min-width: calc(20% - 19.2px);
+            }
+    
+            .trending-track {
+                gap: 24px;
+            }
+    
+            .product-card {
+                flex: 0 0 calc(25% - 18px);
+                min-width: calc(25% - 18px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="messages-wrapper" id="messagesWrapper">
+                <div class="message-item active"><a href="/sobre" class="message-link">Teu Estilo – Nossa Identidade</a></div>
+                <div class="message-item"><a href="/servicos/shein" class="message-link">Quer comprar na Shein? Nós tratamos de tudo por ti!</a></div>
+                <div class="message-item"><a href="/servicos/perucas" class="message-link">Aplicação de perucas profissional – Marca já a tua sessão</a></div>
+                <div class="message-item"><a href="/servicos/alfaiataria" class="message-link">Roupa à tua medida? A nossa alfaiataria resolve</a></div>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/teuestilo" target="_blank" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <span>@teuestilo</span>
+                </a>
+                <a href="https://facebook.com/teuestilo" target="_blank" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    <span>@teuestilo</span>
+                </a>
+                <a href="https://tiktok.com/@teuestilo" target="_blank" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    <span>@teuestilo</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <svg class="logo-symbol" viewBox="0 0 100 100">
+                        <path d="M50 6 C18 6, 6 26, 6 50 C6 80, 26 94, 50 94 C80 94, 94 74, 94 50 C94 20, 74 6, 50 6" stroke="#f97316" stroke-width="5" fill="none"/>
+                        <path d="M50 18 C28 18, 18 32, 18 50 C18 72, 32 82, 50 82 C72 82, 82 68, 82 50 C82 28, 68 18, 50 18" stroke="#f97316" stroke-width="4.5" fill="none"/>
+                        <path d="M50 30 C36 30, 30 40, 30 50 C30 64, 40 70, 50 70 C64 70, 70 60, 70 50 C70 36, 60 30, 50 30" stroke="#f97316" stroke-width="4" fill="none"/>
+                        <circle cx="50" cy="50" r="12" fill="#f97316"/>
+                    </svg>
+                    <div class="logo-text"><span class="logo-teu">Teu</span><span class="logo-estilo">Estilo</span></div>
+                </a>
+                <div class="search-box">
+                    <form class="search-form" action="/pesquisa" method="GET">
+                        <input type="text" class="search-input" name="q" placeholder="Pesquisa o Teu Estilo">
+                        <button type="submit" class="search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/login" class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+                    <a href="/favoritos" class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="badge">0</span></a>
+                    <a href="/carrinho" class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="badge dark">0</span></a>
+                </div>
+            </div>
+            <div class="header-search-mobile">
+                <form class="search-form search-mobile" action="/pesquisa" method="GET">
+                    <input type="text" class="search-input" name="q" placeholder="Pesquisa o Teu Estilo">
+                    <button type="submit" class="search-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+                </form>
+            </div>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link active">Início</a></li>
+                    <li class="nav-item">
+                        <a href="/mulher/roupas" class="nav-link">Roupas<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                        <div class="dropdown">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-links">
+                                    <p class="dropdown-title">Categorias</p>
+                                    <ul>
+                                        <li><a href="/mulher/roupas/vestidos" class="featured">👗 Vestidos</a></li>
+                                        <li><a href="/mulher/roupas/blusas">👚 Blusas</a></li>
+                                        <li><a href="/mulher/roupas/blazers">🧥 Blazers</a></li>
+                                        <li><a href="/mulher/roupas/saias">Saias</a></li>
+                                        <li><a href="/mulher/roupas/calcas">Calças</a></li>
+                                        <li><a href="/mulher/roupas/conjuntos">Conjuntos</a></li>
+                                    </ul>
+                                </div>
+                                <a href="/colecao/vestidos" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag orange">Nova Colecção</span>
+                                        <h5>Vestidos de Verão</h5>
+                                        <p>Modelos frescos e elegantes para arrasar.</p>
+                                        <span class="dropdown-card-cta">Ver colecção<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                                <a href="/registar" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag blue">Exclusivo</span>
+                                        <h5>Cadastra-te e Ganha 10%</h5>
+                                        <p>Descontos exclusivos para membros.</p>
+                                        <span class="dropdown-card-cta">Criar conta<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ocasioes" class="nav-link">Ocasiões<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                        <div class="dropdown">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-links">
+                                    <p class="dropdown-title">Ocasiões</p>
+                                    <ul>
+                                        <li><a href="/produtos?ocasiao=festa" class="featured">🎉 Festa</a></li>
+                                        <li><a href="/produtos?ocasiao=casamento">💒 Casamento</a></li>
+                                        <li><a href="/produtos?ocasiao=trabalho">💼 Trabalho</a></li>
+                                        <li><a href="/produtos?ocasiao=dia-a-dia">☀️ Dia-a-Dia</a></li>
+                                        <li><a href="/produtos?ocasiao=formatura">🎓 Formatura</a></li>
+                                    </ul>
+                                </div>
+                                <a href="/produtos?ocasiao=casamento" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag orange">Destaque</span>
+                                        <h5>Looks para Casamento</h5>
+                                        <p>O vestido perfeito para o grande dia.</p>
+                                        <span class="dropdown-card-cta">Explorar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                                <a href="/registar" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag blue">Exclusivo</span>
+                                        <h5>Junta-te à Comunidade</h5>
+                                        <p>10% de desconto na primeira compra.</p>
+                                        <span class="dropdown-card-cta">Criar conta<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/servicos" class="nav-link">Serviços<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+                        <div class="dropdown">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-links">
+                                    <p class="dropdown-title">Serviços</p>
+                                    <ul>
+                                        <li><a href="/servicos/shein" class="featured">🛍️ Compras Shein</a></li>
+                                        <li><a href="/servicos/perucas">💇‍♀️ Aplicação de Perucas</a></li>
+                                        <li><a href="/servicos/alfaiataria">✂️ Alfaiataria</a></li>
+                                        <li><a href="/servicos/aluguer">👗 Aluguer de Vestidos</a></li>
+                                    </ul>
+                                </div>
+                                <a href="/servicos/perucas" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag green">Popular</span>
+                                        <h5>Aplicação de Perucas</h5>
+                                        <p>Instalação profissional 100% natural.</p>
+                                        <span class="dropdown-card-cta">Marcar sessão<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                                <a href="/carrinho" class="dropdown-card">
+                                    <div class="dropdown-card-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop');"></div>
+                                    <div class="dropdown-card-body">
+                                        <span class="dropdown-card-tag blue">Rápido</span>
+                                        <h5>Finaliza a Compra</h5>
+                                        <p>Conclui via WhatsApp.</p>
+                                        <span class="dropdown-card-cta">Ver carrinho<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="/sobre" class="nav-link">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- TAP BAR -->
+    <nav class="tap-bar">
+        <a href="/" class="tap-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Início</span></a>
+        <a href="/mulher/roupas" class="tap-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg><span>Roupas</span></a>
+        <a href="/servicos" class="tap-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><path d="M6 9v12"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M18 15v6"/><path d="M21 18h-6"/></svg><span>Serviços</span></a>
+        <a href="/sobre" class="tap-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span>Sobre</span></a>
+    </nav>
+    <div class="tap-spacer"></div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- BANNER -->
+        <section class="banner-section">
+            <div class="banner-container">
+                <div class="banner-wrapper">
+                    <div class="banner-slides" id="bannerSlides">
+                        <div class="banner-slide"><a href="/mulher/roupas"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=500&fit=crop" alt="Roupas"><div class="slide-content"><span class="slide-tag">Nova Colecção</span><h2 class="slide-title">Descobre o Teu Estilo</h2><p class="slide-text">Roupas selecionadas para todas as ocasiões.</p><span class="slide-cta">Ver colecção<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></a></div>
+                        <div class="banner-slide"><a href="/servicos/shein"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=500&fit=crop" alt="Shein"><div class="slide-content"><span class="slide-tag">Serviço Exclusivo</span><h2 class="slide-title">Compras Shein Sem Stress</h2><p class="slide-text">Envia-nos os links e nós tratamos de tudo.</p><span class="slide-cta">Saber mais<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></a></div>
+                        <div class="banner-slide"><a href="/servicos/perucas"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&h=500&fit=crop" alt="Perucas"><div class="slide-content"><span class="slide-tag">Profissional</span><h2 class="slide-title">Aplicação de Perucas</h2><p class="slide-text">Instalação profissional com acabamento natural.</p><span class="slide-cta">Marcar sessão<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></a></div>
+                        <div class="banner-slide"><a href="/servicos/alfaiataria"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&h=500&fit=crop" alt="Costura"><div class="slide-content"><span class="slide-tag">Personalizado</span><h2 class="slide-title">Costura à Tua Medida</h2><p class="slide-text">Ajustes, consertos e peças por medida.</p><span class="slide-cta">Ver serviços<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></a></div>
+                    </div>
+                    <button class="banner-nav prev" id="bannerPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg></button>
+                    <button class="banner-nav next" id="bannerNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></button>
+                    <div class="banner-dots" id="bannerDots">
+                        <button class="banner-dot active" data-index="0"></button>
+                        <button class="banner-dot" data-index="1"></button>
+                        <button class="banner-dot" data-index="2"></button>
+                        <button class="banner-dot" data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COPYWRITING -->
+        <section class="copywriting-section">
+            <div class="copywriting-container">
+                <div class="copywriting-wrapper">
+                    <div class="copywriting-track" id="copyTrack">
+                        <div class="copy-card"><div class="copy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="copy-content"><h4 class="copy-title">Acessibilidade</h4><p class="copy-text">Preços justos e pagamento flexível para todos.</p></div></div>
+                        <div class="copy-card"><div class="copy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="copy-content"><h4 class="copy-title">Qualidade</h4><p class="copy-text">Produtos selecionados com padrão de excelência.</p></div></div>
+                        <div class="copy-card"><div class="copy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="copy-content"><h4 class="copy-title">Segurança</h4><p class="copy-text">Compra com confiança e satisfação garantida.</p></div></div>
+                        <div class="copy-card"><div class="copy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="copy-content"><h4 class="copy-title">Variedade</h4><p class="copy-text">Opções para todos os gostos e ocasiões.</p></div></div>
+                    </div>
+                    <div class="copywriting-dots" id="copyDots"><span class="copy-dot active" data-index="0"></span><span class="copy-dot" data-index="1"></span><span class="copy-dot" data-index="2"></span><span class="copy-dot" data-index="3"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECÇÕES PLACEHOLDER -->
+
+
+<!-- HTML DA SECÇÃO CATEGORIAS -->
+<section class="categories-section" id="categorias">
+    <div class="categories-container">
+        <div class="categories-header">
+            <h2 class="categories-title">Compre por Categorias</h2>
+            <div class="categories-controls">
+                <button class="categories-nav-btn prev" id="catPrev" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="categories-nav-btn next" id="catNext" aria-label="Próximo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Menu 3 Pontos -->
+                <div class="menu-dots-wrapper">
+                    <button class="menu-dots-btn" id="catMenuBtn" aria-label="Mais opções">
+                        <span class="menu-dot"></span>
+                        <span class="menu-dot"></span>
+                        <span class="menu-dot"></span>
+                    </button>
+                    <div class="dots-dropdown" id="catDropdown">
+                        <a href="/mulher/roupas" class="dots-dropdown-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                                <rect x="14" y="14" width="7" height="7" rx="1"/>
+                            </svg>
+                            Ver todas as categorias
+                        </a>
+                        <a href="/produtos?ordem=recentes" class="dots-dropdown-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            Ver últimas novidades
+                        </a>
+                        <a href="/servicos" class="dots-dropdown-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                            Explorar serviços
+                        </a>
+                        <div class="dots-dropdown-divider"></div>
+                        <a href="/parceria" class="dots-dropdown-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Tornar-me parceiro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="categories-carousel">
+            <div class="categories-track" id="categoriesTrack">
+                <!-- Vestidos -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/vestidos" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=600&fit=crop" alt="Vestidos" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Vestidos</h3>
+                            <p class="category-card-count">+120 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Blusas -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/blusas" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&h=600&fit=crop" alt="Blusas" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Blusas</h3>
+                            <p class="category-card-count">+85 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Blazers -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/blazers" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=400&h=600&fit=crop" alt="Blazers" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Blazers</h3>
+                            <p class="category-card-count">+45 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Saias -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/saias" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0uj9a?w=400&h=600&fit=crop" alt="Saias" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Saias</h3>
+                            <p class="category-card-count">+60 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Calças -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/calcas" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=600&fit=crop" alt="Calças" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Calças</h3>
+                            <p class="category-card-count">+75 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Conjuntos -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/conjuntos" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=600&fit=crop" alt="Conjuntos" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Conjuntos</h3>
+                            <p class="category-card-count">+35 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Casacos -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/casacos" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=400&h=600&fit=crop" alt="Casacos" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Casacos</h3>
+                            <p class="category-card-count">+40 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Batas -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/batas" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&h=600&fit=crop" alt="Batas" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Batas</h3>
+                            <p class="category-card-count">+25 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Camisas -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/camisas" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=400&h=600&fit=crop" alt="Camisas" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Camisas</h3>
+                            <p class="category-card-count">+55 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+                
+                <!-- Fatos de Banho -->
+                <article class="category-card">
+                    <a href="/mulher/roupas/fatos-de-banho" class="category-card-link">
+                        <img src="https://images.unsplash.com/photo-1570976447640-ac859083963f?w=400&h=600&fit=crop" alt="Fatos de Banho" class="category-card-img" loading="lazy">
+                        <div class="category-card-overlay"></div>
+                        <div class="category-card-content">
+                            <h3 class="category-card-name">Fatos de Banho</h3>
+                            <p class="category-card-count">+30 peças</p>
+                        </div>
+                        <span class="category-card-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </article>
+            </div>
+        </div>
+        
+        <div class="categories-progress" id="categoriesProgress">
+            <span class="progress-dot active" data-index="0"></span>
+            <span class="progress-dot" data-index="1"></span>
+            <span class="progress-dot" data-index="2"></span>
+            <span class="progress-dot" data-index="3"></span>
+            <span class="progress-dot" data-index="4"></span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     HTML - MAIS PROCURADOS
+     ================================================================ -->
+<section class="trending-section" id="mais-procurados">
+    <div class="trending-container">
+        
+        <!-- ============================================================
+             HEADER - Título + Navegação
+             ============================================================ -->
+        <div class="trending-header">
+            <h2 class="trending-title">
+                <span class="trending-title-mais">Mais</span>
+                <span class="trending-title-procurados">Procurados</span>
+            </h2>
+            
+            <!-- Navegação (Setas) - Visível em tablet+ -->
+            <div class="trending-nav">
+                <button class="trending-nav-btn prev" id="trendingPrev" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="trending-nav-btn next" id="trendingNext" aria-label="Próximo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- ============================================================
+             FILTROS - Botões de Categoria
+             ============================================================ -->
+        <div class="trending-filters">
+            <div class="trending-filters-track" id="trendingFilters">
+                <button class="filter-btn active" data-category="vestidos">Vestidos</button>
+                <button class="filter-btn" data-category="blusas">Blusas</button>
+                <button class="filter-btn" data-category="blazers">Blazers</button>
+                <button class="filter-btn" data-category="saias">Saias</button>
+                <button class="filter-btn" data-category="calcas">Calças</button>
+                <button class="filter-btn" data-category="conjuntos">Conjuntos</button>
+                <button class="filter-btn" data-category="casacos">Casacos</button>
+                <button class="filter-btn" data-category="batas">Batas</button>
+                <button class="filter-btn" data-category="camisas">Camisas</button>
+                <button class="filter-btn" data-category="fatos-banho">Fatos de Banho</button>
+            </div>
+        </div>
+        
+        <!-- ============================================================
+             CARROSSEL DE PRODUTOS
+             ============================================================ -->
+        <div class="trending-carousel">
+            <div class="trending-track" id="trendingTrack">
+                
+                <!-- ========== PRODUTO 1 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=600&fit=crop" alt="Vestido Vermelho Elegante" class="product-card-img" loading="lazy">
+                        
+                        <!-- Botão Favoritos -->
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Menu 3 Pontos -->
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-vermelho" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">CKEU</p>
+                        <h3 class="product-name"><a href="/produto/vestido-vermelho">Vestido Vermelho Elegante Midi</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#seda</span>
+                            <span class="product-tag">#elegante</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">12.500 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- ========== PRODUTO 2 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=600&fit=crop" alt="Vestido Floral" class="product-card-img" loading="lazy">
+                        
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-floral" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Badge de desconto (exemplo) -->
+                        <span class="product-badge-discount">-20%</span>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">TCHI</p>
+                        <h3 class="product-name"><a href="/produto/vestido-floral">Vestido Floral Verão Midi</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#floral</span>
+                            <span class="product-tag">#verão</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">9.800 Kz</span>
+                            <span class="product-price-old">12.250 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- ========== PRODUTO 3 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=600&fit=crop" alt="Vestido Preto" class="product-card-img" loading="lazy">
+                        
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-preto" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">TEND</p>
+                        <h3 class="product-name"><a href="/produto/vestido-preto">Vestido Preto Clássico</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#clássico</span>
+                            <span class="product-tag">#noite</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">15.000 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- ========== PRODUTO 4 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=400&h=600&fit=crop" alt="Vestido Azul" class="product-card-img" loading="lazy">
+                        
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-azul" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">REBE</p>
+                        <h3 class="product-name"><a href="/produto/vestido-azul">Vestido Azul Royal Festa</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#festa</span>
+                            <span class="product-tag">#cetim</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">18.900 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- ========== PRODUTO 5 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=600&fit=crop" alt="Vestido Rosa" class="product-card-img" loading="lazy">
+                        
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-rosa" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">SUPE</p>
+                        <h3 class="product-name"><a href="/produto/vestido-rosa">Vestido Rosa Romântico</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#romântico</span>
+                            <span class="product-tag">#chiffon</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">11.200 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- ========== PRODUTO 6 ========== -->
+                <article class="product-card" data-category="vestidos">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=400&h=600&fit=crop" alt="Vestido Verde" class="product-card-img" loading="lazy">
+                        
+                        <button class="product-favorite-btn" aria-label="Adicionar aos favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="product-menu-wrapper">
+                            <button class="product-menu-btn" aria-label="Mais opções">
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                                <span class="product-menu-dot"></span>
+                            </button>
+                            <div class="product-dropdown">
+                                <a href="/produto/vestido-verde" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    Ver detalhes
+                                </a>
+                                <button class="product-dropdown-item favorite-trigger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    Adicionar aos favoritos
+                                </button>
+                                <a href="/mulher/roupas/vestidos" class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    Ver todos os vestidos
+                                </a>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                    Adicionar ao carrinho
+                                </button>
+                                <button class="product-dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                                    Partilhar produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-content">
+                        <p class="product-sku">ALLI</p>
+                        <h3 class="product-name"><a href="/produto/vestido-verde">Vestido Verde Esmeralda Longo</a></h3>
+                        <div class="product-tags">
+                            <span class="product-tag">#trend</span>
+                            <span class="product-tag">#luxo</span>
+                            <span class="product-tag">#gala</span>
+                        </div>
+                        <div class="product-price-wrapper">
+                            <span class="product-price">22.500 Kz</span>
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+        
+        <!-- ============================================================
+             INDICADOR DE PROGRESSO (Mobile)
+             ============================================================ -->
+        <div class="trending-progress" id="trendingProgress">
+            <span class="trending-dot active" data-index="0"></span>
+            <span class="trending-dot" data-index="1"></span>
+            <span class="trending-dot" data-index="2"></span>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- ================================================================
+     POPUP DE LOGIN (Para Favoritos)
+     ================================================================ -->
+<div class="login-popup-overlay" id="loginPopup">
+    <div class="login-popup" style="position: relative;">
+        <button class="login-popup-close" id="loginPopupClose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+            </svg>
+        </button>
+        <div class="login-popup-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+        </div>
+        <h3 class="login-popup-title">Guarda os teus favoritos!</h3>
+        <p class="login-popup-text">Para guardar peças que amas e criar a tua wishlist personalizada, entra na tua conta ou cria uma nova — é rápido e gratuito!</p>
+        <div class="login-popup-buttons">
+            <a href="/login" class="login-popup-btn primary">Entrar na minha conta</a>
+            <a href="/registar" class="login-popup-btn secondary">Criar conta grátis</a>
+        </div>
+    </div>
+</div>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Serviço: Aplicação de Perucas</h2><a href="/servicos/perucas" class="section-link">Saber mais<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><h3 class="section-placeholder-title">Aplicação de Perucas</h3><p class="section-placeholder-text">Banner promocional do serviço</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Nova Colecção</h2><a href="/colecao" class="section-link">Ver colecção<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><h3 class="section-placeholder-title">Nova Colecção (Futuro)</h3><p class="section-placeholder-text">Destaque da colecção actual</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Últimas Novidades</h2><a href="/produtos?ordem=recentes" class="section-link">Ver todas<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3 class="section-placeholder-title">Produtos Recentes</h3><p class="section-placeholder-text">Carrossel de últimos produtos</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Serviço: Comprar na Shein</h2><a href="/servicos/shein" class="section-link">Saber mais<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><h3 class="section-placeholder-title">Compras Shein</h3><p class="section-placeholder-text">Banner promocional + Como funciona</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Serviço: Alfaiataria e Costura</h2><a href="/servicos/alfaiataria" class="section-link">Saber mais<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m14.5 2-8.5 8.5 6 6 8.5-8.5c1.5-1.5 1.5-4 0-5.5s-4-1.5-5.5 0z"/><path d="M3 21l3-3"/></svg><h3 class="section-placeholder-title">Alfaiataria e Costura</h3><p class="section-placeholder-text">Banner promocional do serviço</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Segue-nos e Cadastra-te</h2></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg><h3 class="section-placeholder-title">Redes Sociais + Newsletter</h3><p class="section-placeholder-text">Links + Formulário de cadastro</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">Queres ser Parceiro?</h2></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 class="section-placeholder-title">Programa de Parceria</h3><p class="section-placeholder-text">Info + Formulário para fornecedores</p></div></div></section>
+
+        <section class="homepage-section"><div class="container"><div class="section-header"><h2 class="section-title">O Que Dizem os Clientes</h2></div><div class="section-placeholder"><svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><h3 class="section-placeholder-title">Depoimentos (Futuro)</h3><p class="section-placeholder-text">Carrossel de testemunhos</p></div></div></section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="homepage-section" style="background-color: var(--primary-blue); padding: 60px 0;">
+        <div class="container">
+            <div class="section-placeholder" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                <svg class="section-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                <h3 class="section-placeholder-title" style="color: #ffffff;">Footer</h3>
+                <p class="section-placeholder-text" style="color: rgba(255,255,255,0.7);">Logo + Links + Contactos + Redes + Copyright</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // MENSAGENS ROTATIVAS
+            const messagesWrapper = document.getElementById('messagesWrapper');
+            if (messagesWrapper) {
+                const messages = messagesWrapper.querySelectorAll('.message-item');
+                let msgIndex = 0, msgPaused = false, msgInterval;
+                function nextMsg() { if (msgPaused) return; messages[msgIndex].classList.remove('active'); msgIndex = (msgIndex + 1) % messages.length; messages[msgIndex].classList.add('active'); }
+                function startMsg() { msgInterval = setInterval(nextMsg, 5000); }
+                function stopMsg() { clearInterval(msgInterval); }
+                messagesWrapper.addEventListener('mouseenter', () => { msgPaused = true; stopMsg(); });
+                messagesWrapper.addEventListener('mouseleave', () => { msgPaused = false; startMsg(); });
+                startMsg();
+            }
+
+            // BANNER SLIDER
+            const bannerSlides = document.getElementById('bannerSlides');
+            const bannerDots = document.querySelectorAll('.banner-dot');
+            const prevBtn = document.getElementById('bannerPrev');
+            const nextBtn = document.getElementById('bannerNext');
+            if (bannerSlides) {
+                let bannerIndex = 0, bannerInterval;
+                function goToBanner(i) { if (i < 0) i = 3; if (i > 3) i = 0; bannerIndex = i; bannerSlides.style.transform = `translateX(-${i * 100}%)`; bannerDots.forEach((d, idx) => d.classList.toggle('active', idx === i)); }
+                function nextBanner() { goToBanner(bannerIndex + 1); }
+                function startBanner() { bannerInterval = setInterval(nextBanner, 6000); }
+                function stopBanner() { clearInterval(bannerInterval); }
+                function resetBanner() { stopBanner(); startBanner(); }
+                prevBtn.addEventListener('click', () => { goToBanner(bannerIndex - 1); resetBanner(); });
+                nextBtn.addEventListener('click', () => { goToBanner(bannerIndex + 1); resetBanner(); });
+                bannerDots.forEach(d => d.addEventListener('click', () => { goToBanner(parseInt(d.dataset.index)); resetBanner(); }));
+                document.querySelector('.banner-wrapper').addEventListener('mouseenter', stopBanner);
+                document.querySelector('.banner-wrapper').addEventListener('mouseleave', startBanner);
+                startBanner();
+            }
+
+            // COPYWRITING MOBILE
+            const copyTrack = document.getElementById('copyTrack');
+            const copyDots = document.querySelectorAll('.copy-dot');
+            if (copyTrack) {
+                let copyIndex = 0, copyInterval;
+                function isMobile() { return window.innerWidth < 768; }
+                function goToCopy(i) { if (!isMobile()) return; if (i < 0) i = 3; if (i > 3) i = 0; copyIndex = i; copyTrack.style.transform = `translateX(-${i * 100}%)`; copyDots.forEach((d, idx) => d.classList.toggle('active', idx === i)); }
+                function nextCopy() { goToCopy(copyIndex + 1); }
+                function startCopy() { if (isMobile()) copyInterval = setInterval(nextCopy, 4000); }
+                function stopCopy() { clearInterval(copyInterval); }
+                window.addEventListener('resize', () => { stopCopy(); if (isMobile()) startCopy(); else copyTrack.style.transform = 'none'; });
+                if (isMobile()) startCopy();
+            }
+        });
+    </script>
+ <!-- JAVASCRIPT -->
+<script>
+// ==================== MENU 3 PONTOS DROPDOWN ====================
+const menuBtns = document.querySelectorAll('.menu-dots-btn');
+
+menuBtns.forEach(btn => {
+    const dropdown = btn.nextElementSibling;
+    
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Fecha outros dropdowns abertos
+        document.querySelectorAll('.dots-dropdown.open').forEach(d => {
+            if (d !== dropdown) {
+                d.classList.remove('open');
+                d.previousElementSibling.classList.remove('active');
+            }
+        });
+        
+        // Toggle atual
+        dropdown.classList.toggle('open');
+        btn.classList.toggle('active');
+    });
+});
+
+// Fechar ao clicar fora
+document.addEventListener('click', () => {
+    document.querySelectorAll('.dots-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+        d.previousElementSibling.classList.remove('active');
+    });
+});
+
+// Fechar com ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.dots-dropdown.open').forEach(d => {
+            d.classList.remove('open');
+            d.previousElementSibling.classList.remove('active');
+        });
+    }
+});
+
+// ==================== CATEGORIAS CARROSSEL ====================
+const catTrack = document.getElementById('categoriesTrack');
+const catPrev = document.getElementById('catPrev');
+const catNext = document.getElementById('catNext');
+const catDots = document.querySelectorAll('.progress-dot');
+
+if (catTrack) {
+    let catIndex = 0;
+    let catItemsVisible = 2;
+    let catTotalItems = 10;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    function getCatItemsVisible() {
+        if (window.innerWidth >= 1024) return 5;
+        if (window.innerWidth >= 768) return 4;
+        if (window.innerWidth >= 640) return 3;
+        return 2;
+    }
+
+    function getCatItemWidth() {
+        const card = catTrack.querySelector('.category-card');
+        if (!card) return 200;
+        const style = window.getComputedStyle(catTrack);
+        const gap = parseInt(style.gap) || 16;
+        return card.offsetWidth + gap;
+    }
+
+    function getMaxCatIndex() {
+        catItemsVisible = getCatItemsVisible();
+        return Math.max(0, catTotalItems - catItemsVisible);
+    }
+
+    function updateCatButtons() {
+        const maxIndex = getMaxCatIndex();
+        catPrev.classList.toggle('disabled', catIndex <= 0);
+        catNext.classList.toggle('disabled', catIndex >= maxIndex);
+    }
+
+    function updateCatDots() {
+        const maxIndex = getMaxCatIndex();
+        const activeDot = Math.round((catIndex / maxIndex) * (catDots.length - 1)) || 0;
+        catDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeDot);
+        });
+    }
+
+    function goToCatSlide(index) {
+        const maxIndex = getMaxCatIndex();
+        catIndex = Math.max(0, Math.min(index, maxIndex));
+        const offset = catIndex * getCatItemWidth();
+        catTrack.style.transform = `translateX(-${offset}px)`;
+        currentTranslate = -offset;
+        prevTranslate = currentTranslate;
+        updateCatButtons();
+        updateCatDots();
+    }
+
+    catPrev.addEventListener('click', () => goToCatSlide(catIndex - 1));
+    catNext.addEventListener('click', () => goToCatSlide(catIndex + 1));
+
+    catDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            const maxIndex = getMaxCatIndex();
+            const targetIndex = Math.round((i / (catDots.length - 1)) * maxIndex);
+            goToCatSlide(targetIndex);
+        });
+    });
+
+    // Touch/Mouse Drag
+    function touchStart(e) {
+        isDragging = true;
+        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        catTrack.classList.add('dragging');
+    }
+
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentPos - startPos;
+        currentTranslate = prevTranslate + diff;
+        catTrack.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function touchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        catTrack.classList.remove('dragging');
+        
+        const movedBy = currentTranslate - prevTranslate;
+        const threshold = getCatItemWidth() / 3;
+        
+        if (movedBy < -threshold) {
+            goToCatSlide(catIndex + 1);
+        } else if (movedBy > threshold) {
+            goToCatSlide(catIndex - 1);
+        } else {
+            goToCatSlide(catIndex);
+        }
+    }
+
+    catTrack.addEventListener('touchstart', touchStart, { passive: true });
+    catTrack.addEventListener('touchmove', touchMove, { passive: true });
+    catTrack.addEventListener('touchend', touchEnd);
+    catTrack.addEventListener('mousedown', touchStart);
+    catTrack.addEventListener('mousemove', touchMove);
+    catTrack.addEventListener('mouseup', touchEnd);
+    catTrack.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd();
+    });
+
+    // Prevent image drag
+    catTrack.querySelectorAll('img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
+
+    // Resize
+    window.addEventListener('resize', () => {
+        goToCatSlide(catIndex);
+    });
+
+    // Init
+    updateCatButtons();
+    updateCatDots();
+}
+</script>
+<!-- ================================================================
+     JAVASCRIPT - MAIS PROCURADOS
+     ================================================================ -->
+<script>
+// ================================================================
+// TRENDING SECTION - Carrossel de Produtos
+// ================================================================
+
+(function() {
+    // ============================================================
+    // VARIÁVEIS E ELEMENTOS
+    // ============================================================
+    const trendingTrack = document.getElementById('trendingTrack');
+    const trendingPrev = document.getElementById('trendingPrev');
+    const trendingNext = document.getElementById('trendingNext');
+    const trendingDots = document.querySelectorAll('.trending-dot');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const loginPopup = document.getElementById('loginPopup');
+    const loginPopupClose = document.getElementById('loginPopupClose');
+    
+    if (!trendingTrack) return;
+    
+    let trendingIndex = 0;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    
+    // ============================================================
+    // FUNÇÕES DO CARROSSEL
+    // ============================================================
+    
+    function getItemsVisible() {
+        if (window.innerWidth >= 1024) return 4;
+        if (window.innerWidth >= 768) return 4;
+        if (window.innerWidth >= 640) return 3;
+        return 2;
+    }
+    
+    function getVisibleProducts() {
+        return trendingTrack.querySelectorAll('.product-card:not([style*="display: none"])');
+    }
+    
+    function getItemWidth() {
+        const products = getVisibleProducts();
+        if (!products.length) return 200;
+        const style = window.getComputedStyle(trendingTrack);
+        const gap = parseInt(style.gap) || 16;
+        return products[0].offsetWidth + gap;
+    }
+    
+    function getMaxIndex() {
+        const products = getVisibleProducts();
+        const itemsVisible = getItemsVisible();
+        return Math.max(0, products.length - itemsVisible);
+    }
+    
+    function updateButtons() {
+        const maxIndex = getMaxIndex();
+        if (trendingPrev) trendingPrev.classList.toggle('disabled', trendingIndex <= 0);
+        if (trendingNext) trendingNext.classList.toggle('disabled', trendingIndex >= maxIndex);
+    }
+    
+    function updateDots() {
+        const maxIndex = getMaxIndex();
+        if (maxIndex === 0) {
+            trendingDots.forEach(dot => dot.classList.remove('active'));
+            if (trendingDots[0]) trendingDots[0].classList.add('active');
+            return;
+        }
+        const activeDot = Math.round((trendingIndex / maxIndex) * (trendingDots.length - 1));
+        trendingDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeDot);
+        });
+    }
+    
+    function goToSlide(index) {
+        const maxIndex = getMaxIndex();
+        trendingIndex = Math.max(0, Math.min(index, maxIndex));
+        const offset = trendingIndex * getItemWidth();
+        trendingTrack.style.transform = `translateX(-${offset}px)`;
+        currentTranslate = -offset;
+        prevTranslate = currentTranslate;
+        updateButtons();
+        updateDots();
+    }
+    
+    // ============================================================
+    // FILTROS DE CATEGORIA
+    // ============================================================
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Atualiza botão ativo
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const category = btn.dataset.category;
+            const allProducts = trendingTrack.querySelectorAll('.product-card');
+            
+            // Filtra produtos
+            allProducts.forEach(product => {
+                if (product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            // Reset carrossel
+            trendingIndex = 0;
+            goToSlide(0);
+        });
+    });
+    
+    // ============================================================
+    // NAVEGAÇÃO (Setas)
+    // ============================================================
+    
+    if (trendingPrev) {
+        trendingPrev.addEventListener('click', () => goToSlide(trendingIndex - 1));
+    }
+    if (trendingNext) {
+        trendingNext.addEventListener('click', () => goToSlide(trendingIndex + 1));
+    }
+    
+    trendingDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            const maxIndex = getMaxIndex();
+            const targetIndex = Math.round((i / (trendingDots.length - 1)) * maxIndex);
+            goToSlide(targetIndex);
+        });
+    });
+    
+    // ============================================================
+    // DRAG / SWIPE
+    // ============================================================
+    
+    function touchStart(e) {
+        isDragging = true;
+        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        trendingTrack.classList.add('dragging');
+    }
+    
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentPos - startPos;
+        currentTranslate = prevTranslate + diff;
+        trendingTrack.style.transform = `translateX(${currentTranslate}px)`;
+    }
+    
+    function touchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        trendingTrack.classList.remove('dragging');
+        
+        const movedBy = currentTranslate - prevTranslate;
+        const threshold = getItemWidth() / 3;
+        
+        if (movedBy < -threshold) {
+            goToSlide(trendingIndex + 1);
+        } else if (movedBy > threshold) {
+            goToSlide(trendingIndex - 1);
+        } else {
+            goToSlide(trendingIndex);
+        }
+    }
+    
+    trendingTrack.addEventListener('touchstart', touchStart, { passive: true });
+    trendingTrack.addEventListener('touchmove', touchMove, { passive: true });
+    trendingTrack.addEventListener('touchend', touchEnd);
+    trendingTrack.addEventListener('mousedown', touchStart);
+    trendingTrack.addEventListener('mousemove', touchMove);
+    trendingTrack.addEventListener('mouseup', touchEnd);
+    trendingTrack.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+    
+    // Prevenir drag de imagens
+    trendingTrack.querySelectorAll('img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
+    
+    // ============================================================
+    // MENU 3 PONTOS (Dropdown do Produto)
+    // ============================================================
+    
+    const productMenuBtns = document.querySelectorAll('.product-menu-btn');
+    
+    productMenuBtns.forEach(btn => {
+        const dropdown = btn.nextElementSibling;
+        
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            // Fecha outros dropdowns
+            document.querySelectorAll('.product-dropdown.open').forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('open');
+                    d.previousElementSibling.classList.remove('active');
+                }
+            });
+            
+            dropdown.classList.toggle('open');
+            btn.classList.toggle('active');
+        });
+    });
+    
+    // Fechar ao clicar fora
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.product-dropdown.open').forEach(d => {
+            d.classList.remove('open');
+            d.previousElementSibling.classList.remove('active');
+        });
+    });
+    
+    // ============================================================
+    // BOTÃO FAVORITOS + POPUP LOGIN
+    // ============================================================
+    
+    const favoriteBtns = document.querySelectorAll('.product-favorite-btn, .favorite-trigger');
+    
+    favoriteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            // Simula verificação de login (substituir por lógica real)
+            const isLoggedIn = false; // Alterar para verificação real
+            
+            if (isLoggedIn) {
+                btn.classList.toggle('active');
+            } else {
+                // Mostra popup
+                loginPopup.classList.add('open');
+            }
+        });
+    });
+    
+    // Fechar popup
+    if (loginPopupClose) {
+        loginPopupClose.addEventListener('click', () => {
+            loginPopup.classList.remove('open');
+        });
+    }
+    
+    loginPopup.addEventListener('click', (e) => {
+        if (e.target === loginPopup) {
+            loginPopup.classList.remove('open');
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && loginPopup.classList.contains('open')) {
+            loginPopup.classList.remove('open');
+        }
+    });
+    
+    // ============================================================
+    // RESIZE
+    // ============================================================
+    
+    window.addEventListener('resize', () => {
+        goToSlide(trendingIndex);
+    });
+    
+    // ============================================================
+    // INICIALIZAÇÃO
+    // ============================================================
+    
+    updateButtons();
+    updateDots();
+    
+})();
+</script>
+</body>
+</html>
