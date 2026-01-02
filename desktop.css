@@ -1,0 +1,206 @@
+/* ============================================================
+   TEU ESTILO - DESKTOP.CSS
+   Breakpoints: 1024px e 1280px
+   ============================================================ */
+
+/* ============================================================
+   BREAKPOINT 1024px
+   ============================================================ */
+@media (min-width: 1024px) {
+
+    /* Utilities */
+    .container {
+        padding: 0 32px;
+    }
+
+    /* Header */
+    .logo-symbol {
+        width: 54px;
+        height: 54px;
+    }
+
+    .logo-teu,
+    .logo-estilo {
+        font-size: 30px;
+    }
+
+    .search-box {
+        max-width: 680px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+        min-width: 780px;
+        padding: 32px;
+    }
+
+    .dropdown-grid {
+        grid-template-columns: 200px 1fr 1fr;
+        gap: 32px;
+    }
+
+    /* Banner */
+    .banner-container {
+        padding: 0;
+    }
+
+    .banner-slide img {
+        height: 420px;
+    }
+
+    .slide-content {
+        padding: 64px;
+    }
+
+    .slide-title {
+        font-size: 44px;
+    }
+
+    .slide-text {
+        font-size: 16px;
+        max-width: 45%;
+    }
+
+    .slide-cta {
+        padding: 14px 28px;
+        font-size: 15px;
+        margin-top: 24px;
+    }
+
+    /* Copywriting */
+    .copywriting-section {
+        padding: 0 32px 48px;
+    }
+
+    .copywriting-track {
+        gap: 32px;
+    }
+
+    .copy-icon {
+        width: 68px;
+        height: 68px;
+    }
+
+    .copy-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Categories */
+    .categories-section {
+        padding: 80px 0;
+    }
+
+    .categories-container {
+        padding: 0 32px;
+    }
+
+    .categories-carousel {
+        margin: 0 -32px;
+        padding: 0 32px;
+    }
+
+    .categories-track {
+        gap: 20px;
+    }
+
+    .category-card {
+        flex: 0 0 calc(20% - 16px);
+        min-width: calc(20% - 16px);
+        border-radius: 24px;
+    }
+
+    .category-card-content {
+        padding: 28px;
+    }
+
+    .category-card-name {
+        font-size: 24px;
+    }
+
+    .category-card-count {
+        font-size: 14px;
+    }
+
+    .category-card-arrow {
+        bottom: 28px;
+        right: 28px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .category-card-arrow svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Homepage Sections */
+    .homepage-section {
+        padding: 80px 0;
+    }
+
+    /* Trending */
+    .trending-section {
+        padding: 80px 0;
+    }
+
+    .trending-container {
+        padding: 0 32px;
+        position: relative;
+    }
+
+    .trending-carousel {
+        margin: 0 -32px;
+        padding: 0 32px;
+    }
+
+    .trending-track {
+        gap: 20px;
+    }
+
+    .product-card {
+        flex: 0 0 calc(25% - 15px);
+        min-width: calc(25% - 15px);
+    }
+
+    .product-favorite-btn,
+    .product-menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .product-favorite-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .product-card-content {
+        padding: 20px 8px;
+    }
+}
+
+/* ============================================================
+   BREAKPOINT 1280px
+   ============================================================ */
+@media (min-width: 1280px) {
+
+    /* Categories */
+    .categories-track {
+        gap: 24px;
+    }
+
+    .category-card {
+        flex: 0 0 calc(20% - 19.2px);
+        min-width: calc(20% - 19.2px);
+    }
+
+    /* Trending */
+    .trending-track {
+        gap: 24px;
+    }
+
+    .product-card {
+        flex: 0 0 calc(25% - 18px);
+        min-width: calc(25% - 18px);
+    }
+}
